@@ -7,15 +7,16 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
  */
 export interface IBtn extends ButtonHTMLAttributes<HTMLButtonElement> {
   color: string; // Tailwind color classes for button background
-  text: string; // Button display text
+  children: ReactNode; // Button display text
   width?: "w-full" | "w-fit"; // Optional width utility class
 }
 export interface Imovie {
   adult: boolean;
-  id: number;
+  id?: number;
   title: string;
   overview: string;
   poster_path: string
+  poster_Base?:"https://image.tmdb.org/t/p/w500" | ""
 }
 /**
  * Centralized style/class name definitions for consistency across the app.

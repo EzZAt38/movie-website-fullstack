@@ -1,11 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import ProductCard from "../components/ProductCard";
-import { productList } from "../data/index";
 import { Imovie, styles } from "../interfaces/interface";
-import ButtonComponent from "../ui/ButtonComponent";
-import MyModal from "../ui/DailogModle";
 import { Toaster } from "react-hot-toast";
 import { Outlet } from "react-router-dom";
+import Header from "../components/Header";
 
 type movieLsit = Imovie[];
 
@@ -19,7 +17,8 @@ const Home = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
+        window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 100 &&
         !isFetching.current
       ) {
         setPage((prev) => prev + 1);
@@ -41,17 +40,23 @@ const Home = () => {
       setAddProduct((prev) => [...prev, ...data["results"]]);
       setLoading(false);
       isFetching.current = false;
+      const resp = await fetch("/api/v2/hianime/home");
+const data2 = await resp.json();
+console.log(data2);
     })();
   }, [page]);
 
   return (
     <main>
-      <div className="header relative h-[100vh]"></div>
+      <Header>
+            <p className="text-white z-30 text-2xl">watch and enjoy</p>
+      </Header>
       {/* Product List */}
       <div className={`${styles.responsiveScreen} container mx-auto pt-2`}>
         {addProduct.map((movie, idx) => (
           <ProductCard
             key={idx}
+            poster_Base="https://image.tmdb.org/t/p/w500"
             adult={movie.adult}
             id={movie.id}
             overview={movie.overview}

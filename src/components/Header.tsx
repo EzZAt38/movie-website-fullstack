@@ -1,17 +1,6 @@
-import React from "react";
-const Header = () => {
-  return (
-    <div className="relative text-center">
-      <video
-        src="head.mp4"  
-        autoPlay
-        loop
-        controls
-        className="w-full h-full"
-      />
-      <p className="text-2xl text-white z-30">All you wish herer</p>
-    </div>
-  );
+import React, { ReactNode } from "react";
+const Header = ({ children }: { children: ReactNode }) => {
+  return <div className="header relative h-[100vh]">{children}</div>;
 };
 
 export default Header;

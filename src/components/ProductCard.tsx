@@ -4,7 +4,7 @@ import { Imovie, styles} from "../interfaces/interface";
 import Image from "./Image";
 import { useState } from "react";
 import MyModal from "../ui/DailogModle";
-const ProductCard =({adult,overview,title,poster_path}:Imovie) => {
+const ProductCard =({adult,overview,title,poster_path,poster_Base}:Imovie) => {
     const [deleteProduct, setDeleteProduct] = useState(false);
   console.log(adult)
   return (
@@ -13,7 +13,7 @@ const ProductCard =({adult,overview,title,poster_path}:Imovie) => {
       <div className={styles.icardHeader}>
         <div className="imageSide">
           <Image
-            imageURL={`https://image.tmdb.org/t/p/w500${poster_path}`}
+            imageURL={`${poster_Base}${poster_path}`}
             alt="product image"
             className="rounded-md w-full"
           />
@@ -26,7 +26,7 @@ const ProductCard =({adult,overview,title,poster_path}:Imovie) => {
       {/* price and category side */}
       {/* this is the footer side */}
       <div className="footer flex  space-x-2 p-1">
-        <ButtonComponent color={styles.submit} text="About Movie" onClick={()=>setDeleteProduct(true)}/>
+        <ButtonComponent color={styles.submit} children="About Movie" onClick={()=>setDeleteProduct(true)}/>
       </div>
        <MyModal
         isOpen={deleteProduct}
@@ -42,7 +42,7 @@ const ProductCard =({adult,overview,title,poster_path}:Imovie) => {
           <div className="mt-4 flex space-x-2">
             <ButtonComponent
               color={"bg-gray-400 shadow-gray-500 hover:bg-gray-600"}
-              text="Cancel"
+              children="Cancel"
               onClick={() => setDeleteProduct(false)}
             />
           </div>

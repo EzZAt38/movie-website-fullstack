@@ -9,8 +9,9 @@ const Navbar = () => {
         <NavLink to={"/react-product-porject/About"}>About Us</NavLink>
         <NavLink to={"/react-product-porject/Contact"}>cntact with Us</NavLink>
         <div className="searchbar flex items-center space-x-1">
-            <input type="text" placeholder='search here' className='rounded-md text-black px-1'/>
+          <NavLink to={"/react-product-porject/search"}>
             <IoIosSearch className='text-xl' />
+        </NavLink>
         </div>
     </div>
   )
