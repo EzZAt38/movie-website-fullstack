@@ -43,4 +43,8 @@ body{
         border-radius: 0.5rem;
     }
 }
+.active{
+    background-color: #56dfcf73;
+    padding: 0 2px;
+}
 /* ...existing code... */

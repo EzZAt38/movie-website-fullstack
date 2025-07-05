@@ -1,6 +1,7 @@
 {
   "name": "my-project",
   "version": "0.0.0",
+  "homepage": "https://ezzat38.github.io/depoly-movie-website/",
   "type": "module",
   "scripts": {
     "dev": "vite",
